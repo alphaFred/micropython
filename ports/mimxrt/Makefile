@@ -126,6 +126,7 @@ SRC_HAL_IMX_C += \
 	$(MCU_DIR)/drivers/fsl_pit.c \
 	$(MCU_DIR)/drivers/fsl_snvs_lp.c \
 	$(MCU_DIR)/drivers/fsl_trng.c \
+	$(MCU_DIR)/drivers/fsl_usdhc.c \
 
 SRC_C = \
 	main.c \
@@ -141,6 +142,7 @@ SRC_C = \
 	machine_rtc.c \
 	machine_timer.c \
 	machine_uart.c \
+	machine_sdcard.c \
 	mimxrt_flash.c \
 	modutime.c \
 	modmachine.c \
@@ -268,6 +270,7 @@ SRC_QSTR += \
 	machine_timer.c \
 	machine_uart.c \
 	mimxrt_flash.c \
+	machine_sdcard.c \
 	modutime.c \
 	modmachine.c \
 	modmimxrt.c \
