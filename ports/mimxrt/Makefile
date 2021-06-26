@@ -20,6 +20,7 @@ QSTR_GLOBAL_DEPENDENCIES = $(BOARD_DIR)/mpconfigboard.h
 # MicroPython feature configurations
 FROZEN_MANIFEST ?= boards/manifest.py
 MICROPY_VFS_LFS2 ?= 1
+MICROPY_VFS_FAT ?= 1
 
 # Include py core make definitions
 include $(TOP)/py/py.mk
@@ -54,6 +55,7 @@ INC += -I$(TOP)/$(MCU_DIR)/project_template
 INC += -I$(TOP)/lib/tinyusb/src
 INC += -I$(TOP)/lib/tinyusb/hw
 INC += -I$(TOP)/lib/tinyusb/hw/bsp/teensy_40
+INC += -I$(TOP)/lib/oofatfs
 
 CFLAGS_MCU = -mtune=cortex-m7 -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16
 CFLAGS += $(INC) -Wall -Wdouble-promotion -Wfloat-conversion -std=c99 -nostdlib -mthumb $(CFLAGS_MCU)
@@ -151,6 +153,7 @@ SRC_C = \
 	modmimxrt.c \
 	moduos.c \
 	mphalport.c \
+	fatfs_port.c \
 	hal/flexspi_nor_flash.c \
 	lib/mp-readline/readline.c \
 	lib/libc/string0.c \
@@ -161,6 +164,8 @@ SRC_C = \
 	lib/utils/pyexec.c \
 	lib/utils/stdout_helpers.c \
 	lib/utils/sys_stdio_mphal.c \
+	lib/oofatfs/ff.c \
+	lib/oofatfs/ffunicode.c \
 	drivers/bus/softspi.c \
 	extmod/modonewire.c \
 	$(SRC_TINYUSB_C) \
@@ -278,6 +283,7 @@ SRC_QSTR += \
 	modmimxrt.c \
 	moduos.c \
 	pin.c \
+	fatfs_port.c \
 	lib/utils/mpirq.c \
 	lib/utils/sys_stdio_mphal.c \
 	extmod/modonewire.c \
