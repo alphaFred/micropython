@@ -24,3 +24,15 @@
     { IOMUXC_GPIO_AD_B0_02_LPUART6_TX }, { IOMUXC_GPIO_AD_B0_03_LPUART6_RX }, \
     { IOMUXC_GPIO_EMC_31_LPUART7_TX }, { IOMUXC_GPIO_EMC_32_LPUART7_RX }, \
     { IOMUXC_GPIO_AD_B1_10_LPUART8_TX }, { IOMUXC_GPIO_AD_B1_11_LPUART8_RX },
+
+#define USDHC_DUMMY_PIN NULL, 0
+#define MICROPY_USDHC1 \
+    { \
+        .cmd = {GPIO_SD_B0_00_USDHC1_CMD}, \
+        .clk = { GPIO_SD_B0_01_USDHC1_CLK }, \
+        .cd_b = { USDHC_DUMMY_PIN },\
+        .data0 = { GPIO_SD_B0_02_USDHC1_DATA0 },\
+        .data1 = { GPIO_SD_B0_03_USDHC1_DATA1 },\
+        .data2 = { GPIO_SD_B0_04_USDHC1_DATA2 },\
+        .data3 = { GPIO_SD_B0_05_USDHC1_DATA3 },\
+    }
