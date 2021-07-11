@@ -33,4 +33,4 @@ except:
             print("Mounting SD card failed")
 
 # Change to root directory
-os.chdir("/")
+os.chdir("/")  # Todo: switch back to solution from Robert
