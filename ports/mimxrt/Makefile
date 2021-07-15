@@ -137,6 +137,7 @@ SRC_C = \
 	led.c \
 	pin.c \
 	ticks.c \
+	sdcard.c \
 	tusb_port.c \
 	board_init.c \
 	$(BOARD_DIR)/flash_config.c \
